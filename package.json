@@ -1,0 +1,27 @@
+{
+  "name": "sta_back",
+  "version": "1.0.0",
+  "description": "Back-end for Stocks Tech Analysis",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergeiReutov/STA_back.git"
+  },
+  "author": "Sergei Reutov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergeiReutov/STA_back/issues"
+  },
+  "homepage": "https://github.com/SergeiReutov/STA_back#readme",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-router": "^8.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
