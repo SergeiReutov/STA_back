@@ -19,7 +19,8 @@
   "homepage": "https://github.com/SergeiReutov/STA_back#readme",
   "dependencies": {
     "koa": "^2.11.0",
-    "koa-router": "^8.0.8"
+    "koa-router": "^8.0.8",
+    "yahoo-finance": "^0.3.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
