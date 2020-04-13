@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/SergeiReutov/STA_back#readme",
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "koa": "^2.11.0",
     "koa-router": "^8.0.8",
     "yahoo-finance": "^0.3.6"
