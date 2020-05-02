@@ -2,6 +2,8 @@ const Koa = require('koa');
 const cors = require('@koa/cors');
 const Router = require('koa-router');
 const yahooFinance = require('yahoo-finance');
+const R = require('ramda');
+const moment = require('moment');
 
 const app = new Koa();
 const router = new Router();
@@ -9,13 +11,14 @@ const router = new Router();
 router.get('/api/chartData/:symbol', async (ctx) => {
   await yahooFinance.historical({
     symbol: ctx.params.symbol,
-    from: '2020-01-07',
-    to: '2020-01-09',
+    from: moment().subtract(2, 'years').format('YYYY-MM-DD'),
+    to: moment().format('YYYY-MM-DD'),
     period: 'd'
   }, function (err, quotes) {
-    console.log(err);
-    console.log(quotes);
-    ctx.body = quotes;
+    ctx.body = R.sort(
+      (a, b) => moment(b.date).isBefore(moment(a.date)) ? 1 : -1,
+      quotes
+    );
     return ctx;
   });
 });
