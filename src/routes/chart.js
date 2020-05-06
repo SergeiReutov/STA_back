@@ -8,7 +8,7 @@ chartRouter
     ctx.symbol = symbol;
     return next();
   })
-  .get('/:symbol', async (ctx) => {
+  .get('/:symbol', async ctx => {
     const quotes = await yahooFinance.quote(ctx.params.symbol);
     ctx.body = quotes;
   });
