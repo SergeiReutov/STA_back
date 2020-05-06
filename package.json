@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "Back-end for Stocks Tech Analysis",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/app.js"
+    "start": "nodemon --experimental-modules src/app.js",
+    "eslint": "eslint src/**/*.js"
+  },
+  "husky": {
+    "pre-push": "npm run eslint"
   },
   "repository": {
     "type": "git",
@@ -19,6 +24,7 @@
   "homepage": "https://github.com/SergeiReutov/STA_back#readme",
   "dependencies": {
     "@koa/cors": "^2.2.3",
+    "@std/esm": "^0.26.0",
     "koa": "^2.11.0",
     "koa-router": "^8.0.8",
     "moment": "^2.25.0",
@@ -33,6 +39,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
     "nodemon": "^2.0.2"
   }
 }

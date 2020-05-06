@@ -1,6 +1,6 @@
-const Router = require('koa-router');
-const yahooFinance = require('yahoo-finance');
-const isSymbolValid = require('../utils/validation').isSymbolValid;
+import Router from 'koa-router';
+import { fetchPriceData, handlePriceData } from '../models/priceData.js';
+import { isSymbolValid } from '../utils/validation.js';
 
 const chartRouter = new Router();
 
@@ -13,8 +13,8 @@ chartRouter
     return next();
   })
   .get('/:symbol', async ctx => {
-    const quotes = await yahooFinance.quote(ctx.symbol);
-    ctx.body = quotes;
+    const priceData = await fetchPriceData(ctx.symbol);
+    ctx.body = handlePriceData(priceData);
   });
 
-module.exports = chartRouter;
+export default chartRouter;

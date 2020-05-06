@@ -1,6 +1,5 @@
-const Router = require('koa-router');
-
-const chartRouter = require('./chart');
+import Router from 'koa-router';
+import chartRouter from './chart.js';
 
 const router = new Router({
   prefix: '/api'
@@ -9,4 +8,4 @@ const router = new Router({
 router
   .use('/chart', chartRouter.routes(), chartRouter.allowedMethods());
 
-module.exports = router;
+export default router;

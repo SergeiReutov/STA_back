@@ -1,6 +1,6 @@
-const Koa = require('koa');
-const cors = require('@koa/cors');
-const router = require('./routes');
+import Koa from 'koa';
+import cors from '@koa/cors';
+import router from './routes/index.js';
 
 const app = new Koa();
 
